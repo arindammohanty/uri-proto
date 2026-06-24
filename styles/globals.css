@@ -1,0 +1,98 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+:root {
+  /* Design Tokens */
+  --color-brand-blue: #2454ff;
+  --color-background: #ffffff;
+  --color-text-dark: #2e2e2e;
+  --color-text-medium: #4e4e4e;
+  --color-text-subtle: #6e6e6e;
+  --color-text-muted: #8e8e8e;
+  --color-text-faint: #a5a5a9;
+  --color-border: #e6e6e7;
+  --color-hero-placeholder: #fdd7d7;
+  --color-badge-bg: #eef2ff;
+  --color-star: #f5a623;
+
+  /* Typography */
+  --font-size-hero-headline: 56px;
+  --font-size-logo: 32px;
+
+  /* Border Radius */
+  --radius-btn: 16px;
+  --radius-card: 32px;
+
+  /* Layout */
+  --max-width-container: 1280px;
+
+  /* Shadows */
+  --shadow-nav: 0 1px 12px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+@theme inline {
+  --color-brand-blue: #2454ff;
+  --color-background: #ffffff;
+  --color-text-dark: #2e2e2e;
+  --color-text-medium: #4e4e4e;
+  --color-text-subtle: #6e6e6e;
+  --color-text-muted: #8e8e8e;
+  --color-text-faint: #a5a5a9;
+  --color-border: #e6e6e7;
+  --color-hero-placeholder: #fdd7d7;
+  --color-badge-bg: #eef2ff;
+  --color-star: #f5a623;
+
+  --font-size-hero-headline: 56px;
+  --font-size-logo: 32px;
+
+  --radius-btn: 16px;
+  --radius-card: 32px;
+
+  --breakpoint-xs: 320px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1440px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-medium);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-blue);
+  outline-offset: 2px;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
