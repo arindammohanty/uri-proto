@@ -21,11 +21,12 @@ export default function Footer() {
           <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="diamonds" width="64" height="64" patternUnits="userSpaceOnUse">
-                <path d="M32 0L64 32L32 64L0 32Z" fill="none" stroke="white" strokeOpacity="0.2" strokeWidth="1"/>
-                <circle cx="32" cy="0" r="2.5" fill="white" fillOpacity="0.35"/>
-                <circle cx="64" cy="32" r="2.5" fill="white" fillOpacity="0.35"/>
-                <circle cx="32" cy="64" r="2.5" fill="white" fillOpacity="0.35"/>
-                <circle cx="0" cy="32" r="2.5" fill="white" fillOpacity="0.35"/>
+                {/* Changed the grid and circles to black to add the requested accents */}
+                <path d="M32 0L64 32L32 64L0 32Z" fill="none" stroke="black" strokeOpacity="0.15" strokeWidth="1"/>
+                <circle cx="32" cy="0" r="2.5" fill="black" fillOpacity="0.25"/>
+                <circle cx="64" cy="32" r="2.5" fill="black" fillOpacity="0.25"/>
+                <circle cx="32" cy="64" r="2.5" fill="black" fillOpacity="0.25"/>
+                <circle cx="0" cy="32" r="2.5" fill="black" fillOpacity="0.25"/>
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#diamonds)" />
@@ -36,9 +37,10 @@ export default function Footer() {
             <p className="text-white/90 text-sm md:text-base mb-8 max-w-2xl mx-auto font-medium">
               Accelerate your growth and future-proof your enterprise with URI Technologies.
             </p>
+            {/* Added a black accent button to match the screenshot design */}
             <Link 
               href="/contact" 
-              className="inline-flex justify-center bg-white text-slate-900 font-semibold px-6 py-3.5 rounded-xl items-center hover:bg-slate-50 transition-colors shadow-sm"
+              className="inline-flex justify-center bg-slate-900 text-white font-semibold px-8 py-4 rounded-xl items-center hover:bg-slate-800 transition-colors shadow-xl"
             >
               Consult Experts <ArrowRight className="ml-2 w-4 h-4" strokeWidth={2.5} />
             </Link>
