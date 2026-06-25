@@ -92,7 +92,7 @@ export default function HomePage() {
             </div>
           </div>
           
-          <div className="order-1 lg:order-2 w-full flex justify-end relative h-[400px] lg:h-[550px]">
+          <div className="order-1 lg:order-2 w-full flex justify-end relative h-[400px] lg:h-[600px]">
             <Image 
               src="/images/hero-image.jpg" 
               alt="Digital Infrastructure" 
