@@ -54,16 +54,16 @@ export default function Footer() {
             </Link>
           </div>
 
-          {/* Upgraded to a 5-column grid layout to give the heavy address text room to breathe */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12 w-full items-start">
+          {/* Upgraded to a 12-column grid for precise, proportional spacing */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-8 gap-y-12 w-full items-start">
             
-            {/* Offices Section - Allocated 2 columns to prevent overflow */}
-            <div className="flex flex-col md:col-span-2 lg:col-span-2">
+            {/* Offices Section - Spans 5 columns total */}
+            <div className="flex flex-col md:col-span-2 lg:col-span-5">
               <h3 className="font-bold text-slate-900 mb-6 text-[15px] md:text-base">Offices</h3>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-slate-500 text-sm font-medium">
-                {/* India Office Sub-column */}
-                <div>
+              <div className="grid grid-cols-1 sm:grid-cols-5 gap-8 text-slate-500 text-sm font-medium">
+                {/* India Office Sub-column - Smaller width */}
+                <div className="sm:col-span-2">
                   <h4 className="text-slate-800 font-bold mb-3 border-b border-slate-100 pb-2">India office</h4>
                   <ul className="space-y-2">
                     <li className="flex items-start">
@@ -73,8 +73,8 @@ export default function Footer() {
                   </ul>
                 </div>
 
-                {/* Global Office Sub-column */}
-                <div>
+                {/* Global Office Sub-column - Larger width for the long address */}
+                <div className="sm:col-span-3">
                   <h4 className="text-slate-800 font-bold mb-3 border-b border-slate-100 pb-2">Global office</h4>
                   <ul className="space-y-5">
                     <li className="flex items-start">
@@ -100,7 +100,8 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="flex flex-col">
+            {/* Contact Us - Spans 3 columns to accommodate the email address smoothly */}
+            <div className="flex flex-col lg:col-span-3">
               <h3 className="font-bold text-slate-900 mb-6 text-[15px] md:text-base">Contact us</h3>
               <div className="space-y-1.5 text-slate-500 text-sm font-medium leading-relaxed">
                 <p>Phone - +91 674 6066050</p>
@@ -108,7 +109,8 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="flex flex-col">
+            {/* Core Services - Spans 2 columns */}
+            <div className="flex flex-col lg:col-span-2">
               <h3 className="font-bold text-slate-900 mb-6 text-[15px] md:text-base">Core Services</h3>
               <ul className="space-y-3 text-slate-500 text-sm font-medium">
                 <li><Link href="/services/cloud-platform-services" className="hover:text-[#FF6B35] transition-colors">Cloud Platforms</Link></li>
@@ -118,7 +120,8 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="flex flex-col">
+            {/* Company - Spans 2 columns */}
+            <div className="flex flex-col lg:col-span-2">
               <h3 className="font-bold text-slate-900 mb-6 text-[15px] md:text-base">Company</h3>
               <ul className="space-y-3 text-slate-500 text-sm font-medium">
                 <li><Link href="/about" className="hover:text-[#FF6B35] transition-colors">About Us</Link></li>
