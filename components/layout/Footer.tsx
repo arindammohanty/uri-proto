@@ -14,14 +14,13 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#F8F9FA] pt-12 pb-12 border-t border-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12">
         
         <div className="relative bg-[#FF6B35] rounded-[2rem] p-10 md:p-16 lg:p-20 text-center text-white mb-12 overflow-hidden shadow-lg shadow-orange-500/10">
           
           <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="diamonds" width="64" height="64" patternUnits="userSpaceOnUse">
-                {/* Changed the grid and circles to black to add the requested accents */}
                 <path d="M32 0L64 32L32 64L0 32Z" fill="none" stroke="black" strokeOpacity="0.15" strokeWidth="1"/>
                 <circle cx="32" cy="0" r="2.5" fill="black" fillOpacity="0.25"/>
                 <circle cx="64" cy="32" r="2.5" fill="black" fillOpacity="0.25"/>
@@ -37,7 +36,6 @@ export default function Footer() {
             <p className="text-white/90 text-sm md:text-base mb-8 max-w-2xl mx-auto font-medium">
               Accelerate your growth and future-proof your enterprise with URI Technologies.
             </p>
-            {/* Added a black accent button to match the screenshot design */}
             <Link 
               href="/contact" 
               className="inline-flex justify-center bg-slate-900 text-white font-semibold px-8 py-4 rounded-xl items-center hover:bg-slate-800 transition-colors shadow-xl"
@@ -56,28 +54,62 @@ export default function Footer() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 w-full items-start">
+          {/* Upgraded to a 5-column grid layout to give the heavy address text room to breathe */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12 w-full items-start">
             
-            <div className="flex flex-col">
-              <h3 className="font-bold text-slate-900 mb-4 text-[15px] md:text-base">Head office</h3>
-              <div className="space-y-1.5 text-slate-500 text-sm font-medium leading-relaxed">
-                <p>URI Technologies</p>
-                <p>B-36, 2nd Floor, Rupali Street,</p>
-                <p>Sahid Nagar, Bhubaneswar</p>
-                <p>Odisha 751007</p>
+            {/* Offices Section - Allocated 2 columns to prevent overflow */}
+            <div className="flex flex-col md:col-span-2 lg:col-span-2">
+              <h3 className="font-bold text-slate-900 mb-6 text-[15px] md:text-base">Offices</h3>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-slate-500 text-sm font-medium">
+                {/* India Office Sub-column */}
+                <div>
+                  <h4 className="text-slate-800 font-bold mb-3 border-b border-slate-100 pb-2">India office</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start">
+                      <span className="text-[#FF6B35] mr-2 mt-0.5">•</span>
+                      <span>Shaheed Nagar</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Global Office Sub-column */}
+                <div>
+                  <h4 className="text-slate-800 font-bold mb-3 border-b border-slate-100 pb-2">Global office</h4>
+                  <ul className="space-y-5">
+                    <li className="flex items-start">
+                      <span className="text-[#FF6B35] mr-2 mt-0.5">-</span>
+                      <div className="flex-1">
+                        <span className="text-slate-700 font-bold block mb-1">Business Hub 1</span>
+                        <span className="text-slate-500 leading-relaxed block break-words">
+                          1-60/30, Gachibowli - Miyapur Rd,<br />
+                          Jayabheri Enclave, Gachibowli,<br />
+                          Hyderabad, Telangana 500032.
+                        </span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-[#FF6B35] mr-2 mt-0.5">-</span>
+                      <div>
+                        <span className="text-slate-700 font-bold block mb-1">Business Hub 2</span>
+                        <span className="text-slate-500 block">USA - Malaysia</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
 
             <div className="flex flex-col">
-              <h3 className="font-bold text-slate-900 mb-4 text-[15px] md:text-base">Contact us</h3>
+              <h3 className="font-bold text-slate-900 mb-6 text-[15px] md:text-base">Contact us</h3>
               <div className="space-y-1.5 text-slate-500 text-sm font-medium leading-relaxed">
                 <p>Phone - +91 674 6066050</p>
-                <p>Email - info@uritechnologies.com</p>
+                <p>Email - contact@uritechnologies.com</p>
               </div>
             </div>
 
             <div className="flex flex-col">
-              <h3 className="font-bold text-slate-900 mb-4 text-[15px] md:text-base">Core Services</h3>
+              <h3 className="font-bold text-slate-900 mb-6 text-[15px] md:text-base">Core Services</h3>
               <ul className="space-y-3 text-slate-500 text-sm font-medium">
                 <li><Link href="/services/cloud-platform-services" className="hover:text-[#FF6B35] transition-colors">Cloud Platforms</Link></li>
                 <li><Link href="/services/cyber-security-platform-services" className="hover:text-[#FF6B35] transition-colors">Cyber Security</Link></li>
@@ -87,7 +119,7 @@ export default function Footer() {
             </div>
 
             <div className="flex flex-col">
-              <h3 className="font-bold text-slate-900 mb-4 text-[15px] md:text-base">Company</h3>
+              <h3 className="font-bold text-slate-900 mb-6 text-[15px] md:text-base">Company</h3>
               <ul className="space-y-3 text-slate-500 text-sm font-medium">
                 <li><Link href="/about" className="hover:text-[#FF6B35] transition-colors">About Us</Link></li>
                 <li><Link href="/services" className="hover:text-[#FF6B35] transition-colors">All Services</Link></li>

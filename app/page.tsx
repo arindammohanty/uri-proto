@@ -43,9 +43,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-[linear-gradient(to_bottom,#ffffff_0%,#ffffff_10%,#FF824D_45%,#FF824D_55%,#F8F9FA_90%,#F8F9FA_100%)] font-sans text-slate-900 pb-0 selection:bg-[#0B1120] selection:text-white overflow-hidden">
-      {/* Global Wrapper: Full Page Gradient mapping Top(White) -> Middle(Orange) -> Bottom(White) */}
       
-      {/* 1. Hero Section */}
       <section className="pt-16 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="order-2 lg:order-1">
@@ -104,7 +102,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. Infinite Client Carousel - Glassmorphic on the fading gradient */}
       <section className="py-8 flex flex-col lg:flex-row items-center overflow-hidden relative border-y border-white/20 bg-white/10 backdrop-blur-md shadow-sm">
         
         <div className="z-20 px-6 lg:px-12 mb-4 lg:mb-0 lg:border-r border-slate-900/10 flex-shrink-0 flex items-center">
@@ -128,7 +125,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. About Section - Glassmorphic Cards against the strengthening Orange gradient */}
       <section className="py-24 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -153,7 +149,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. Industries Section - Dark Cards popping against the Peak Orange Gradient */}
       <section className="py-24 overflow-hidden relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
@@ -182,10 +177,7 @@ export default function HomePage() {
                 >
                   <div className="relative mb-8 inline-flex items-center justify-center">
                     <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 blur-xl rounded-full transition-opacity duration-500 pointer-events-none scale-[2.0]"></div>
-                    
-                    {/* Updated Wrapper: Becomes solid white on hover to ensure the original icon colors contrast well */}
                     <div className="w-16 h-16 flex items-center justify-center bg-slate-800 border border-slate-700 rounded-2xl text-white group-hover:bg-white group-hover:border-white transition-all duration-300 shadow-md relative z-10">
-                      {/* Updated Icon: Removes the invert and brightness-0 filters on hover to show its true colors */}
                       <img src={ind.icon} alt={ind.name} className="w-8 h-8 object-contain invert brightness-0 group-hover:invert-0 group-hover:brightness-100 transition-all duration-300" onError={(e) => { e.currentTarget.style.display='none'; }} />
                     </div>
                   </div>
@@ -207,7 +199,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. Testimonials Section - Glassmorphic as background fades back to white */}
       <section className="py-24 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -236,12 +227,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. Sticky Contact Form CTA - Blending seamlessly into the bottom white gradient (Footer territory) */}
       <section className="py-24 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start relative">
             
-            {/* Left Sticky Pane */}
             <div className="lg:col-span-5 h-fit sticky top-24 bg-[#0B1120] rounded-[2.5rem] p-10 md:p-12 text-white shadow-2xl border border-slate-800 overflow-hidden relative">
               <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:32px_32px]"></div>
               
@@ -265,7 +254,6 @@ export default function HomePage() {
               </div>
             </div>
             
-            {/* Right Form Pane */}
             <div className="lg:col-span-7 bg-white/95 backdrop-blur-2xl rounded-[2.5rem] border border-white shadow-2xl shadow-slate-200/50 p-8 md:p-12 relative">
               {isSubmitted && (
                 <div className="absolute inset-0 bg-white/95 backdrop-blur-sm z-10 flex flex-col items-center justify-center text-center p-8 animate-in fade-in duration-300 rounded-[2.5rem]">
@@ -286,20 +274,56 @@ export default function HomePage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-bold text-slate-900 mb-2">Full Name <span className="text-[#FF824D]">*</span></label>
-                    <input required type="text" placeholder="John Doe" className="w-full px-5 py-4 rounded-xl bg-slate-50/50 border border-slate-200 outline-none focus:bg-white focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all text-slate-900 placeholder:text-slate-400 font-medium" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
+                    <input 
+                      required 
+                      type="text" 
+                      placeholder="John Doe" 
+                      className="w-full px-5 py-4 rounded-xl bg-[#F8F9FA] border border-slate-200 outline-none focus:bg-white focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all text-slate-900 placeholder:text-slate-400 font-medium" 
+                      value={formData.name} 
+                      onChange={e => setFormData({...formData, name: e.target.value})}
+                      onInvalid={e => (e.target as HTMLInputElement).setCustomValidity('Please fill out all mandatory fields.')}
+                      onInput={e => (e.target as HTMLInputElement).setCustomValidity('')}
+                    />
                   </div>
                   <div>
                     <label className="block text-sm font-bold text-slate-900 mb-2">Work Email <span className="text-[#FF824D]">*</span></label>
-                    <input required type="email" placeholder="john@company.com" className="w-full px-5 py-4 rounded-xl bg-slate-50/50 border border-slate-200 outline-none focus:bg-white focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all text-slate-900 placeholder:text-slate-400 font-medium" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
+                    <input 
+                      required 
+                      type="email" 
+                      placeholder="john@company.com" 
+                      className="w-full px-5 py-4 rounded-xl bg-[#F8F9FA] border border-slate-200 outline-none focus:bg-white focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all text-slate-900 placeholder:text-slate-400 font-medium" 
+                      value={formData.email} 
+                      onChange={e => setFormData({...formData, email: e.target.value})}
+                      onInvalid={e => (e.target as HTMLInputElement).setCustomValidity('Please fill out all mandatory fields.')}
+                      onInput={e => (e.target as HTMLInputElement).setCustomValidity('')}
+                    />
                   </div>
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-slate-900 mb-2">Company Name <span className="text-[#FF824D]">*</span></label>
-                  <input required type="text" placeholder="Enterprise Inc." className="w-full px-5 py-4 rounded-xl bg-slate-50/50 border border-slate-200 outline-none focus:bg-white focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all text-slate-900 placeholder:text-slate-400 font-medium" value={formData.company} onChange={e => setFormData({...formData, company: e.target.value})} />
+                  <input 
+                    required 
+                    type="text" 
+                    placeholder="Enterprise Inc." 
+                    className="w-full px-5 py-4 rounded-xl bg-[#F8F9FA] border border-slate-200 outline-none focus:bg-white focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all text-slate-900 placeholder:text-slate-400 font-medium" 
+                    value={formData.company} 
+                    onChange={e => setFormData({...formData, company: e.target.value})}
+                    onInvalid={e => (e.target as HTMLInputElement).setCustomValidity('Please fill out all mandatory fields.')}
+                    onInput={e => (e.target as HTMLInputElement).setCustomValidity('')}
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-slate-900 mb-2">Technical Challenges <span className="text-[#FF824D]">*</span></label>
-                  <textarea required rows={5} placeholder="Describe the operational blockers or cloud requirements..." className="w-full px-5 py-4 rounded-xl bg-slate-50/50 border border-slate-200 outline-none focus:bg-white focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all resize-none text-slate-900 placeholder:text-slate-400 font-medium" value={formData.requirement} onChange={e => setFormData({...formData, requirement: e.target.value})}></textarea>
+                  <textarea 
+                    required 
+                    rows={5} 
+                    placeholder="Describe the operational blockers or cloud requirements..." 
+                    className="w-full px-5 py-4 rounded-xl bg-[#F8F9FA] border border-slate-200 outline-none focus:bg-white focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all resize-none text-slate-900 placeholder:text-slate-400 font-medium" 
+                    value={formData.requirement} 
+                    onChange={e => setFormData({...formData, requirement: e.target.value})}
+                    onInvalid={e => (e.target as HTMLTextAreaElement).setCustomValidity('Please fill out all mandatory fields.')}
+                    onInput={e => (e.target as HTMLTextAreaElement).setCustomValidity('')}
+                  ></textarea>
                 </div>
                 <button className="w-full py-5 text-lg font-bold bg-[#FF824D] text-white hover:bg-orange-500 rounded-xl transition-all shadow-lg shadow-orange-500/20" type="submit">
                   Submit Architecture Inquiry

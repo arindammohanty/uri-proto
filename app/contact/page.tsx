@@ -201,19 +201,37 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit} className="space-y-6 flex-1 flex flex-col justify-center animate-in fade-in duration-300">
                   <div>
                     <label className="block text-sm font-bold text-slate-900 mb-2">Full Name <span className="text-red-500">*</span></label>
-                    <input required type="text" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all" />
+                    <input 
+                      required 
+                      type="text" 
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+                      onInvalid={e => (e.target as HTMLInputElement).setCustomValidity('Please fill out all mandatory fields.')}
+                      onInput={e => (e.target as HTMLInputElement).setCustomValidity('')}
+                    />
                   </div>
 
                   {formType === 'business' && (
                     <div>
                       <label className="block text-sm font-bold text-slate-900 mb-2">Company Name <span className="text-red-500">*</span></label>
-                      <input required type="text" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all" />
+                      <input 
+                        required 
+                        type="text" 
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+                        onInvalid={e => (e.target as HTMLInputElement).setCustomValidity('Please fill out all mandatory fields.')}
+                        onInput={e => (e.target as HTMLInputElement).setCustomValidity('')}
+                      />
                     </div>
                   )}
 
                   <div>
                     <label className="block text-sm font-bold text-slate-900 mb-2">{formType === 'business' ? 'Work Email' : 'Email Address'} <span className="text-red-500">*</span></label>
-                    <input required type="email" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all" />
+                    <input 
+                      required 
+                      type="email" 
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+                      onInvalid={e => (e.target as HTMLInputElement).setCustomValidity('Please fill out all mandatory fields.')}
+                      onInput={e => (e.target as HTMLInputElement).setCustomValidity('')}
+                    />
                   </div>
 
                   <div>
@@ -247,14 +265,28 @@ export default function ContactPage() {
                     <>
                       <div>
                         <label className="block text-sm font-bold text-slate-900 mb-2">Project Details <span className="text-red-500">*</span></label>
-                        <textarea required rows={4} placeholder="Tell us about the digital transformation objectives..." className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all resize-none"></textarea>
+                        <textarea 
+                          required 
+                          rows={4} 
+                          placeholder="Tell us about the digital transformation objectives..." 
+                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all resize-none"
+                          onInvalid={e => (e.target as HTMLTextAreaElement).setCustomValidity('Please fill out all mandatory fields.')}
+                          onInput={e => (e.target as HTMLTextAreaElement).setCustomValidity('')}
+                        ></textarea>
                       </div>
                     </>
                   ) : (
                     <>
                       <div>
                         <label className="block text-sm font-bold text-slate-900 mb-2">Target Job Role <span className="text-red-500">*</span></label>
-                        <input required type="text" placeholder="e.g. ServiceNow Developer" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all" />
+                        <input 
+                          required 
+                          type="text" 
+                          placeholder="e.g. ServiceNow Developer" 
+                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+                          onInvalid={e => (e.target as HTMLInputElement).setCustomValidity('Please fill out all mandatory fields.')}
+                          onInput={e => (e.target as HTMLInputElement).setCustomValidity('')}
+                        />
                       </div>
                       <div>
                         <label className="block text-sm font-bold text-slate-900 mb-2">LinkedIn Profile URL</label>
